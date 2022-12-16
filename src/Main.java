@@ -56,7 +56,7 @@ public class Main {
         System.out.println("\nЗадача_2");
 
         int clientDeviceYear = 2017;
-        int clientOS = 1;
+        int clientOS = 0;
 
         lernInstallVersion(clientDeviceYear, clientOS);
 //===========================================================
