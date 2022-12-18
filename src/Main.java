@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
     public static void checkLeapYear(int injectedYear) {
@@ -12,13 +14,14 @@ public class Main {
     }
 
     public static void lernInstallVersion(int i, int oS) {
+        int currentYear = LocalDate.now().getYear();
         if (oS == 1) {
-            if (i < 2015) {
+            if (i < currentYear) {
                 System.out.println("«Установите облегченную версию приложения для Android по ссылке».");
             } else {
                 System.out.println("«Установите версию приложения для Android по ссылке».");
             }
-        } else if (i < 2015) {
+        } else if (i < currentYear) {
             System.out.println("«Установите облегченную версию приложения для iOS по ссылке».");
         } else {
             System.out.println("«Установите версию приложения для iOS по ссылке»");
@@ -27,21 +30,23 @@ public class Main {
     }
 
 
-    public static String foundDeliveryDistance(int i) {
+    public static int foundDeliveryDistance(int i) {
 
-        String deliveryDay = "опапа!! - введи корректное значение =Ъ";
-        if (i > 0 && i <= 20) {
-            deliveryDay = "1 ;)";
+        int deliveryDay = 0;
+        if (i > 0) {
+            deliveryDay++;
         }
-        if (i > 20 && i <= 60) {
-            deliveryDay = "2 ;)";
+        if (i > 20) {
+            deliveryDay++;
         }
-        if (i > 60 && i <= 100) {
-            deliveryDay = "3 ;)";
+        if (i > 60) {
+            deliveryDay++;
         }
         if (i > 100) {
-            deliveryDay = "не доставляем =((";
+            deliveryDay = 0;
+
         }
+
         return deliveryDay;
     }
 
@@ -55,17 +60,20 @@ public class Main {
 //===========================================================
         System.out.println("\nЗадача_2");
 
-        int clientDeviceYear = 2017;
+        int clientDeviceYear = 2022;
         int clientOS = 0;
 
         lernInstallVersion(clientDeviceYear, clientOS);
 //===========================================================
         System.out.println("\nЗадача_3");
 
-        int deliveryDistance = -223;
+        int deliveryDistance = 66;
 
-        System.out.println("количество дней на доставку : " + foundDeliveryDistance(deliveryDistance));
-
+        if (foundDeliveryDistance(deliveryDistance) > 0) {
+            System.out.println("количество дней на доставку : " + foundDeliveryDistance(deliveryDistance));
+        } else {
+            System.out.println("количество дней на доставку : нет доставки (");
+        }
     }
 
 }
